@@ -13,7 +13,9 @@ spec:
         - containerPort: 80
       startupProbe:
         exec:
-          command: ["cat >> file1"]
+          command: 
+            - cat 
+            - /temp/health
         failureThreshold: 5
         successThreshold: 1
         initialDelaySeconds: 3
