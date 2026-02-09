@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-red-po
+  labels: 
+    app: red 
+  namespace: prob
+spec:
+  containers:
+    - name: my-red-co
+      image: longflew/ingress:REDPAGE
+      ports:
+        - containerPotr: 80
+      startupProbe:
+        exec:
+          command: ["cat >> file1"]
+        failuerThreshold: 5
+        successThreshold: 1
+        initialDelaySecond: 3
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 80
+        failuerThreshold: 5
+        successThreshold: 1
+        initialDelaySecond: 3
+      readinessProbe:
+        tcpSocket:
+          port: 80
+        failuerThreshold: 5
+        successThreshold: 1
+        initialDelaySecond: 3
