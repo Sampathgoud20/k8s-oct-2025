@@ -10,13 +10,13 @@ spec:
     - name: my-red-co
       image: longflew/ingress:REDPAGE
       ports:
-        - containerPotr: 80
+        - containerPort: 80
       startupProbe:
         exec:
           command: ["cat >> file1"]
-        failuerThreshold: 5
+        failureThreshold: 5
         successThreshold: 1
-        initialDelaySecond: 3
+        initialDelaySeconds: 3
       livenessProbe:
         httpGet:
           path: /
