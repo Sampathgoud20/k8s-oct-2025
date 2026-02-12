@@ -13,7 +13,7 @@ spec:
         - containerPort: 80
       startupProbe:
         exec:
-          command: ["cat >> file1"]
+          command: ["sh", "-c", "test -f /file1"]
         failureThreshold: 5
         successThreshold: 1
         initialDelaySeconds: 3
