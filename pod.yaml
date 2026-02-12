@@ -12,8 +12,8 @@ spec:
       ports:
         - containerPort: 80
       startupProbe:
-        httpGet:
-          path: /
+        exec:
+          command: ["cat >> file1"]
           port: 80
         failureThreshold: 5
         successThreshold: 1
