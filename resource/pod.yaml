@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-red-po
+  annotations:
+    imageregistry: "https://hub.docker.com/"
+  labels:
+    app: red 
+spec:
+  containers:
+    - name: my-red-co
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+resources: 
+  requests:
+        memory: "64Mi"
+        cpu: "250m"
+  limits:
+        memory: "128Mi"
+        cpu: "500m"
